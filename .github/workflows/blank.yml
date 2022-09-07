@@ -13,28 +13,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Clone Retrosheet Github Repository
-      uses: actions/checkout@v2
-
-    # This part here is cloning a second repository
-    # While cloning the repository:
-    #   - it clones the repo into the given `path`
-    #   - it checks out the branch defined at `ref`
-    - name: Clone Retrosheet Github Repository
-      uses: actions/checkout@v3
-      with:
-        repository: chadwickbureau/retrosheet
-        ref: master
-        path: ./retrosheet
-
-    - name: commit files
-      run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add -A
-          git commit -m "Update Retrosheet Data" -a
-    - name: Push Changes
-      uses: ad-m/github-push-action@v0.6.0
-      with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: main
+      - uses: actions/checkout@v3
+      
+      - name: Clone Retrosheet Github Repository
+        run: |
+          git config --global url.https://github.com/.insteadOf git://github.com/
+          git clone https://github.com/chadwickbureau/retrosheet.git
