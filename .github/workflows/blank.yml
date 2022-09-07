@@ -25,4 +25,14 @@ jobs:
       with:
         repository: chadwickbureau/retrosheet
         path: retrosheet
-      
+    - name: commit files
+      run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add -A
+          git commit -m "Update Retrosheet Data" -a
+    - name: Push Changes
+      uses: ad-m/github-push-action@v0.6.0
+      with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
