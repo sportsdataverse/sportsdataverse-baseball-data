@@ -21,10 +21,12 @@ jobs:
     #   - it clones the repo into the given `path`
     #   - it checks out the branch defined at `ref`
     - name: Clone Retrosheet Github Repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       with:
         repository: chadwickbureau/retrosheet
+        ref: master
         path: ./retrosheet
+
     - name: commit files
       run: |
           git config --local user.email "action@github.com"
