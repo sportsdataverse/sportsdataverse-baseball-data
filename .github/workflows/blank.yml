@@ -24,7 +24,7 @@ jobs:
       uses: actions/checkout@v2
       with:
         repository: chadwickbureau/retrosheet
-        path: retrosheet
+        path: ./retrosheet
     - name: commit files
       run: |
           git config --local user.email "action@github.com"
