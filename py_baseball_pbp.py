@@ -6,7 +6,7 @@ from datetime import datetime
 if __name__ == '__main__':
     pybaseball.cache.enable()
     #for i in range(1920,datetime.now().year + 1):
-    for i in range(1972,datetime.now().year + 1):
+    for i in range(datetime.now().year,datetime.now().year + 1):
         print(i)
         season_df = statcast(start_dt=f'{i}-03-01', end_dt=f'{i}-12-01')
         # season = [game_year]
