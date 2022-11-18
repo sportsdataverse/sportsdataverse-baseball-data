@@ -1,7 +1,8 @@
-from pybaseball import statcast
+from datetime import datetime
+
 import pandas as pd
 import pybaseball
-from datetime import datetime
+from pybaseball import statcast
 
 if __name__ == '__main__':
     pybaseball.cache.enable()
