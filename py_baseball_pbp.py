@@ -15,8 +15,8 @@ if __name__ == '__main__':
         season_df['month'] = pd.DatetimeIndex(season_df['game_date']).month
         season_df['day'] = pd.DatetimeIndex(season_df['game_date']).day
 
-        min_month = season_df['month'].min()
-        max_month = season_df['month'].max()
+        min_month = int(season_df['month'].min())
+        max_month = int(season_df['month'].max())
         
         for j in range(min_month,max_month+1):
             month = 0
